@@ -29,5 +29,7 @@ include(${FLB_SOURCE}/cmake/libraries.cmake)
 include(${FLB_SOURCE}/cmake/headers.cmake)
 include(${FLB_SOURCE}/cmake/FindMonkey.cmake)
 
+include_directories(${FLB_SOURCE}/lib/monkey/include/monkey)
+
 # Build plugin
 add_subdirectory(${PLUGIN_NAME})
