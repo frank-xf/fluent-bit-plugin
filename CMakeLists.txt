@@ -28,6 +28,7 @@ set(FLB_PATH_ROOT_SOURCE ${FLB_SOURCE})
 include(${FLB_SOURCE}/cmake/libraries.cmake)
 include(${FLB_SOURCE}/cmake/headers.cmake)
 include(${FLB_SOURCE}/cmake/FindMonkey.cmake)
+include(${FLB_SOURCE}/lib/monkey/include)
 
 # Build plugin
 add_subdirectory(${PLUGIN_NAME})
