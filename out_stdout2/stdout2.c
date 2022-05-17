@@ -23,7 +23,7 @@
 #include <fluent-bit/flb_pack.h>
 
 #include <stdio.h>
-#include "pulsar/c/client.h"
+#include <pulsar/c/client.h>
 
 static int cb_stdout_init(struct flb_output_instance *ins,
                           struct flb_config *config, void *data)
