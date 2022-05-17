@@ -27,7 +27,10 @@ message(STATUS "Fluent Bit source code: " ${FLB_SOURCE})
 set(FLB_PATH_ROOT_SOURCE ${FLB_SOURCE})
 include(${FLB_SOURCE}/cmake/libraries.cmake)
 include(${FLB_SOURCE}/cmake/headers.cmake)
+
+message(STATUS "find before")
 include(${FLB_SOURCE}/cmake/FindMonkey.cmake)
+message(STATUS "find after")
 
 include_directories(${FLB_SOURCE}/lib/monkey/include/monkey)
 
