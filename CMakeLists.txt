@@ -28,11 +28,7 @@ set(FLB_PATH_ROOT_SOURCE ${FLB_SOURCE})
 include(${FLB_SOURCE}/cmake/libraries.cmake)
 include(${FLB_SOURCE}/cmake/headers.cmake)
 
-message(STATUS "find before")
-include(${FLB_SOURCE}/cmake/FindMonkey.cmake)
-message(STATUS "find after")
-
-include_directories(${FLB_SOURCE}/lib/monkey/include/monkey)
-
 # Build plugin
 add_subdirectory(${PLUGIN_NAME})
+
+target_link_libraries(${PLUGIN_NAME} libpulsar)

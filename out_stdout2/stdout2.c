@@ -22,12 +22,28 @@
 #include <fluent-bit/flb_output.h>
 #include <fluent-bit/flb_pack.h>
 
+#include <stdio.h>
+#include "pulsar/c/client.h"
+
 static int cb_stdout_init(struct flb_output_instance *ins,
                           struct flb_config *config, void *data)
 {
     (void) ins;
     (void) config;
     (void) data;
+
+    pulsar_client_configuration_t *conf = pulsar_client_configuration_create();
+    pulsar_client_configuration_set_memory_limit(conf, 64 * 1024 * 1024);
+    pulsar_client_t *client = pulsar_client_create("pulsar://localhost:6650", conf);
+
+
+    if (client == NULL) {
+        printf("create client failed! \n");
+    } else {
+        printf("create client ok! \n");
+    }
+
+    return FLB_OK;
 }
 
 static void cb_stdout_flush(const void *data, size_t bytes,
