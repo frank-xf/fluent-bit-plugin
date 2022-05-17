@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.23)
 project(fluent-bit-plugin)
 
 # Macro to build source code
@@ -30,5 +30,3 @@ include(${FLB_SOURCE}/cmake/headers.cmake)
 
 # Build plugin
 add_subdirectory(${PLUGIN_NAME})
-
-target_link_libraries(${PLUGIN_NAME} libpulsar)
