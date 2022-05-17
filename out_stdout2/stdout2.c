@@ -48,14 +48,19 @@ static int cb_stdout_init(struct flb_output_instance *ins,
     return FLB_OK;
 }
 
-static void cb_stdout_flush(const void *data, size_t bytes,
+static void cb_stdout_flush(struct flb_event_chunk *event_chunk,
+                           struct flb_output_flush *out_flush,
+                           struct flb_input_instance *i_ins,
+                           void *out_context,
+                           struct flb_config *config)
+                           /*(const void *data, size_t bytes,
                             const char *tag, int tag_len,
                             struct flb_input_instance *i_ins,
                             void *out_context,
-                            struct flb_config *config)
+                            struct flb_config *config)*/
 {
     printf("output context: %p\n", out_context);
-    flb_pack_print(data, bytes);
+    flb_pack_print(event_chunk->data, event_chunk->size);
     FLB_OUTPUT_RETURN(FLB_OK);
 }
 
