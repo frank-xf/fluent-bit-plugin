@@ -38,9 +38,13 @@ static int cb_stdout_init(struct flb_output_instance *ins,
 
 
     if (client == NULL) {
-        printf("create client failed! \n");
+        printf("create pulsar client failed! \n");
     } else {
-        printf("create client ok! \n");
+        int a = client->client->getNumberOfProducers();
+        int b = client->client->getNumberOfConsumers ();
+
+
+        printf("create pulsar client ok! \n");
     }
 
     return FLB_OK;
