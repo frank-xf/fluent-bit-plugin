@@ -22,11 +22,13 @@ endif()
 
 # Info
 message(STATUS "Fluent Bit source code: " ${FLB_SOURCE})
+message(STATUS "Project source dir: " ${PROJECT_SOURCE_DIR})
 
 # Include Headers
 set(FLB_PATH_ROOT_SOURCE ${FLB_SOURCE})
 include(${FLB_SOURCE}/cmake/libraries.cmake)
 include(${FLB_SOURCE}/cmake/headers.cmake)
+
 
 # Build plugin
 add_subdirectory(${PLUGIN_NAME})
