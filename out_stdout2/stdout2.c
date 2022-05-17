@@ -40,13 +40,11 @@ static int cb_stdout_init(struct flb_output_instance *ins,
     if (client == NULL) {
         printf("create pulsar client failed! \n");
     } else {
-        int a = client->client->getNumberOfProducers();
-        int b = client->client->getNumberOfConsumers ();
-
-
-        printf("create pulsar client ok! \n");
+        printf("create pulsar client ok: %p\n", client);
     }
 
+    flb_output_set_context(ins, client);
+    
     return FLB_OK;
 }
 
@@ -56,12 +54,15 @@ static void cb_stdout_flush(const void *data, size_t bytes,
                             void *out_context,
                             struct flb_config *config)
 {
+    printf("output context: %p\n", out_context);
     flb_pack_print(data, bytes);
     FLB_OUTPUT_RETURN(FLB_OK);
 }
 
 static int cb_stdout_exit(void *data, struct flb_config *config)
 {
+
+    printf("exit pulsar! \n");
     return 0;
 }
 
